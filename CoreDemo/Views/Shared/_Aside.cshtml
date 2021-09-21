@@ -1,0 +1,62 @@
+﻿
+<aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
+    <div class="right-blog-info text-left">
+        <div class="tech-btm">
+            <img src="~/images/banner1.jpg" class="card-img-top img-fluid" alt="">
+        </div>
+        <div class="tech-btm">
+            <h4>Bilgi Edinmek İçin Abone Ol!</h4>           
+            <form action="#" method="post">
+                <input type="email" placeholder="Email" required="">
+                <input type="submit" value="Abone Ol">
+            </form>
+        </div>
+        <div class="tech-btm">
+            @await Html.PartialAsync("_AsideCategory")
+        </div>
+        <div class="tech-btm">
+            @await Html.PartialAsync("_AsideTopPost")
+        </div>
+        <div class="single-gd my-5 tech-btm">
+            @await Html.PartialAsync("_AsideProgress")
+        </div>
+        <div class="single-gd tech-btm text-left">
+            @await Html.PartialAsync("_AsideLastPost")
+        </div>
+        @*<div class="tech-btm widget_social text-left">
+            <h4>Stay Connect</h4>
+            <ul>
+
+                <li>
+                    <a class="twitter" href="#">
+                        <i class="fab fa-twitter"></i>
+                        <span class="count">317K</span> Twitter Followers
+                    </a>
+                </li>
+                <li>
+                    <a class="facebook" href="#">
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="count">218k</span> Twitter Followers
+                    </a>
+                </li>
+                <li>
+                    <a class="dribble" href="#">
+                        <i class="fab fa-dribbble"></i>
+
+                        <span class="count">215k</span> Dribble Followers
+                    </a>
+                </li>
+                <li>
+                    <a class="pin" href="#">
+                        <i class="fab fa-pinterest"></i>
+                        <span class="count">190k</span> Pinterest Followers
+                    </a>
+                </li>
+
+            </ul>
+        </div>*@
+        <div class="tech-btm">
+            @await Html.PartialAsync("_AsideLatestPosts")
+        </div>
+    </div>
+</aside>
