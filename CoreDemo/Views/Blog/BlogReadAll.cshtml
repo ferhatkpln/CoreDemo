@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Blog>
+@{
+ViewData["Title"] = "BlogDetails";
+Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<section class="banner-bottom">
+    <!--/blog-->
+    <div class="container">
+        <div class="row">
+            <!--left-->
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                @foreach (var b in Model)
+                {
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="#">
+                                    <img src="~/@b.BlogImage" class="img-fluid" alt="">
+                                </a>
+                                @*<img src="~/@b.BlogImage" class="img-fluid" alt="">*@
+                            </div>
+                            <div class="blog-info-middle">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i>@(((DateTime)b.BlogCreateDate).ToString("dd/MM/yyyy"))
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-thumbs-up"></i> 0 Beğeni
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-comment"></i> 0 Yorum
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="fa fa-th-large"></i>kategori adı
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>
+                            <a href="single.html">@b.BlogTitle </a>
+                        </h3>
+                        <p>
+                            @b.BlogContent
+                        </p>
+                        <a href="/Blog/Index/" class="btn btn-primary read-m">Blog Listesi</a>
+                    </div>  
+                }
+                    @await Html.PartialAsync("~/Views/Comment/CommentListByBlog.cshtml")
+                    @await Html.PartialAsync("~/Views/Comment/PartialAddComment.cshtml")
+                </div>
+            <!--//left-->
+            @await Html.PartialAsync("_Aside")
+        </div>
+    </div>
+</section>
+
+
+

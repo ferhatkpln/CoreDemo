@@ -3,6 +3,7 @@ using DataAccessLayer.Concrete.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,33 +11,38 @@ namespace DataAccessLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        Context sqlContext = new Context();
+        Context c = new Context();
         public void Delete(T parametre)
         {
-            sqlContext.Remove(parametre);
-            sqlContext.SaveChanges();
+            c.Remove(parametre);
+            c.SaveChanges();
         }
 
         public T GetById(int id)
         {
-            return sqlContext.Set<T>().Find(id);
+            return c.Set<T>().Find(id);
         }
 
         public List<T> GetListAll()
         {
-            return sqlContext.Set<T>().ToList();
+            return c.Set<T>().ToList();
+        }
+
+        public List<T> GetListAll(Expression<Func<T, bool>> filter)
+        {
+            return c.Set<T>().Where(filter).ToList();
         }
 
         public void Insert(T parametre)
         {
-            sqlContext.Add(parametre);
-            sqlContext.SaveChanges();
+            c.Add(parametre);
+            c.SaveChanges();
         }
 
         public void Update(T parametre)
         {
-            sqlContext.Update(parametre);
-            sqlContext.SaveChanges();
+            c.Update(parametre);
+            c.SaveChanges();
         }
     }
 }
