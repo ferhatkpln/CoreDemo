@@ -6,19 +6,7 @@
                 <i class="fab fa-linode"></i> Fero
             </a>
         </div>
-        <div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
-            <span>Core Demo</span>
-            <span class="mx-lg-4 mx-md-2  mx-1">
-                <a href="login.html">
-                    <i class="fas fa-lock"></i> Giriş Yap
-                </a>
-            </span>
-            <span>
-                <a href="register.html">
-                    <i class="far fa-user"></i> Kayıt Ol
-                </a>
-            </span>
-        </div>
+        @await Html.PartialAsync("_LogReg")
         <div class="col-md-4 log-icons text-right">
 
             <ul class="social_list1 mt-3">
