@@ -7,15 +7,14 @@
 
 <section class="main-content-w3layouts-agileits">
     <div class="container">
-        <h3 class="tittle">Paylaşılan Gönderiler</h3>
-        <div class="row inner-sec">
+        <h3 class="tittle">Blog Posts</h3>
+        <div class="inner-sec">
             <!--left-->
-            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-                <div class="row mb-4">
-
+            <div class="left-blog-info-w3layouts-agileits text-left">
+                <div class="row">                  
                     @foreach (var b in Model)
                     {
-                        <div class="col-md-6 card">
+                        <div class="col-lg-4 card">
                             <a href="/Blog/BlogReadAll/@b.BlogID">
                                 <img src="~/images/@b.BlogImage" class="card-img-top img-fluid" alt="">
                             </a>
@@ -41,7 +40,7 @@
                                 <h5 class="card-title ">
                                     <a href="/Blog/BlogReadAll/@b.BlogID">@b.BlogTitle</a>
                                 </h5>
-                                <p class="card-text mb-3">@b.BlogContent.Substring(0,b.BlogContent.Substring(0,130).LastIndexOf(" "))<a href="/Blog/BlogReadAll/@b.BlogID">...</a></p>
+                                <p class="card-text mb-3">@b.BlogContent.Substring(0, b.BlogContent.Substring(0, 130).LastIndexOf(" "))<a href="/Blog/BlogReadAll/@b.BlogID">...</a></p>
                                 <a href="/Blog/BlogReadAll/@b.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
                             </div>
                         </div>
@@ -69,9 +68,8 @@
             </div>
             <!--//left-->
             <!--right-->
-            @await Html.PartialAsync("_Aside")
+            @*@await Html.PartialAsync("_Aside")*@
             <!--//right-->
         </div>
     </div>
 </section>
-
