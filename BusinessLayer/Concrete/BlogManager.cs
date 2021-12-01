@@ -22,11 +22,11 @@ namespace BusinessLayer.Concrete
         {
             return _blogDAL.GetListWithCategory();
         }
-
-        public Blog GetById(int id)
+        public List<Blog> ListCategoryByWriter(int id)
         {
-            return _blogDAL.GetById(id);
+            return _blogDAL.GetListWithCategoryByWriter(id);
         }
+
         public List<Blog> GetBlogById(int id)
         {
             return _blogDAL.GetListAll(x => x.BlogID == id);
@@ -61,6 +61,11 @@ namespace BusinessLayer.Concrete
         public void TUpdate(Blog t)
         {
             _blogDAL.Update(t);
+        }
+
+        public Blog TGetById(int id)
+        {
+            return _blogDAL.GetById(id);
         }
     }
 }

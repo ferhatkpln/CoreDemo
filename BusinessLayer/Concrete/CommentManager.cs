@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _commentDAL = commentDAL;
         }
 
-        public Comment GetById(int id)
+        public Comment TGetById(int id)
         {
             throw new NotImplementedException();
         }

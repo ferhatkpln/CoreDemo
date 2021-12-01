@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _newsLatterDAL = newsLatterDAL;
         }
 
-        public NewsLetter GetById(int id)
+        public NewsLetter TGetById(int id)
         {
             throw new NotImplementedException();
         }

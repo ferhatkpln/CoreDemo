@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _writerDAL = writerDAL;
         }
 
-        public Writer GetById(int id)
+        public Writer TGetById(int id)
         {
             throw new NotImplementedException();
         }

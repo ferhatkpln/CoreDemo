@@ -19,16 +19,15 @@
     </tr>
     @foreach (var b in Model)
     {
-        <tr>
-            <td>@b.BlogID</td>
-            <td>@b.BlogTitle</td>
-            <td>@b.BlogCreateDate</td>
-            <td>@b.CategoryID</td>
-            <td>@b.BlogStatus</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-warning">Düzenle</a></td>
-        </tr>
+<tr>
+    <th>@b.BlogID</th>
+    <td>@b.BlogTitle</td>
+    <td>@b.BlogCreateDate.ToString($"{0:dd/MM/yyyy}")</td>
+    <td>@b.Category.CategoryName</td>
+    <td>@Html.Raw(b.BlogStatus ? "<label class='badge badge-success'>Aktif</label>" : "<label class='badge badge-danger'>Pasif</label>")</td>
+    <td><a href="/Blog/DeleteBlog/@b.BlogID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Blog/Editblog/@b.BlogID" class="btn btn-warning">Düzenle</a></td>
+</tr>
     }
 </table>
 <a href="/Blog/BlogAdd/" class="btn btn-primary">Yeni Blog Oluştur</a>
-
