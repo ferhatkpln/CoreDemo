@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List< Blog>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bloglar</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Blog Başlık </th>
+                                <th> Blog Kategori </th>
+                                <th> Blog Durumu </th>
+                                <th> Blog Ekleme Tarihi </th>
+                                <th> Blog Sayfası </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var b in Model)
+                            {
+                                <tr>
+                                    <td> <img src="~/images/@b.BlogImage" class="mr-2" alt="image"> </td>
+                                    <td>
+                                         @b.BlogTitle
+                                    </td>
+                                    <td> 
+                                        <label class="badge badge-gradient-secondary">@b.Category.CategoryName</label>
+                                    </td>
+                                    <td>
+                                        @if (b.BlogStatus == true)
+                                        {
+                                            <label class="badge badge-gradient-success">@b.BlogStatus</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="badge badge-gradient-danger">@b.BlogStatus</label>
+                                        }
+                                    </td>
+                                    <td> @b.BlogCreateDate.ToShortDateString()</td>
+                                    <td> <a href="/Blog/BlogReadAll/@b.BlogID" class="btn btn-primary">Detaylar</a></td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
