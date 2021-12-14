@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Bloglar</h4>
-                <div class="table-responsive">
+                <div class="table-responsive" style="height: 450px; overflow-x: hidden; overflow-y: scroll;">
                     <table class="table">
                         <thead>
                             <tr>
@@ -31,7 +31,7 @@
                                         <label class="badge badge-gradient-secondary">@b.Category.CategoryName</label>
                                     </td>
                                     <td>
-                                        @if (b.BlogStatus == true)
+                                        @if (b.BlogStatus)
                                         {
                                             <label class="badge badge-gradient-success">@b.BlogStatus</label>
                                         }
