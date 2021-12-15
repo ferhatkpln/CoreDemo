@@ -1,0 +1,52 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewData["Title"] = "WriterEditprofile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@using (Html.BeginForm("WriterEditProfile", "Writer", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazar Bilgileri</h4>
+                <form class="forms-sample">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Ad ve Soyad</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="İsim" asp-for="WriterName">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">E-posta</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" asp-for="WriterMail" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Hakkımda</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" asp-for="WriterAbout"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Parola</label>
+                        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Password" asp-for="WriterPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputCity1">Durum</label>
+                        <input type="checkbox" class="form-control" id="exampleInputCity1" placeholder="Yazar Durumu" asp-for="WriterStatus">
+                    </div>
+                    <div class="form-group">
+                        <label>Dosya Seç</label>
+                        <input type="file" name="img[]" class="file-upload-default" asp-for="WriterImage">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Dosya Seç">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Yükle</button>
+                            </span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+                    <button class="btn btn-light" href="/DashBoard/Index/">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
